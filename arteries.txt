@@ -1,0 +1,34 @@
+Aortic arch
+        Brachiocephalic a
+            R common carotid a
+            R subclavian a
+        L common carotid a
+            Internal carotid a
+            External carotid a
+        L subclavian a
+            Vertebral artery
+            Int. thoracic a
+            Thyrocervical trunk
+            Costocervical trunk
+            Dorsal scapular artery
+        Descending aorta
+            Bronchial as
+            Abdominal aorta
+                Celiac a
+                    L gastric a
+                    Common hepatic a
+                    Splenic a
+                SMA
+                Renal as
+                IMA
+                L common iliac a
+                    External iliac a
+                        Femoral a
+                            Profunda femoris a
+                            Popliteal a
+                                Peroneal a
+                            Anterior tibial a
+                                Dorsalis pedis a
+                            Posterior tibial a
+                    Internal iliac a
+                R common iliac a
