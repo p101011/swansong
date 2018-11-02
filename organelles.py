@@ -5,7 +5,7 @@ import math
 
 
 class BloodSource:
-    def __init__(self, surface, coords=None):
+    def __init__(self, coords=None):
         # this doesn't get modified on init
         self.total_output = 0
         self.nominal_output = 0
@@ -23,6 +23,8 @@ class BloodSource:
         self.total_output += lps
         if initial:
             self.nominal_output = lps
+        else:
+            print(4)
 
     def destroy(self):
         for vessel in self.children:
@@ -37,7 +39,7 @@ class BloodSource:
         pass
 
     def __str__(self):
-        return ("%f feeds into " % self.total_output) + str(self.children)
+        return ("%f mL\s blood loss " % (self.nominal_output - self.total_output))
 
 
 class Heart(BloodSource):

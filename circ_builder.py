@@ -1,175 +1,85 @@
 import organelles
 
+
 #  Artery Info
 #  missing arms
 
-vessel_coords = {"Heart": [(265, 265)],
-                 "Aortic arch": [(265, 215)],
-                 "Brachiocephalic": [(245, 205)],
-                 "R common carotid": [(225, 160)],
-                 "R Internal carotid": [(221, 98)],
-                 "R External carotid": [(208, 85)],
-                 "R subclavian": [(185, 205)],
-                 "L common carotid": [],
-                 "L Internal carotid": [],
-                 "L External carotid": [],
-                 "L subclavian": [],
-                 "Vertebral artery": [(250, 160)],
-                 "R Int. thoracic": [(225, 235)],
-                 "L Int. thoracic": [],
-                 "R Thyrocervical trunk": [(220, 178)],
-                 "R Costocervical trunk": [(205, 180)],
-                 "L Thyrocervical trunk": [],
-                 "L Costocervical trunk": [],
-                 "R Dorsal scapular artery": [(197, 187)],
-                 "L Dorsal scapular artery": [],
-                 "Descending Aorta": [(262, 320)],
-                 "R Bronchial": [(225, 250)],
-                 "L Bronchial": [],
-                 "Abdominal aorta": [(262, 385)],
-                 "Celiac": [(261, 338)],
-                 "L Gastric": [(239, 343)],
-                 "Common hepatic": [(239, 339)],
-                 "Splenic": [(289, 334)],
-                 "SMA": [(281, 381)],
-                 "Renal": [(241, 368)],
-                 "IMA": [(251, 410)],
-                 "L common iliac": [],
-                 "R common iliac": [(235, 445)],
-                 "L external iliac": [],
-                 "L internal iliac": [],
-                 "L femoral": [],
-                 "L profunda femoris": [],
-                 "L popliteal": [],
-                 "L peroneal": [],
-                 "L anterior tibial": [],
-                 "L posterior tibial": [],
-                 "L dorsalis pedis": [],
-                 "R external iliac": [(206, 502)],
-                 "R internal iliac": [(239, 461)],
-                 "R femoral": [(201, 636)],
-                 "R profunda femoris": [(206, 503)],
-                 "R popliteal": [(189, 694)],
-                 "R peroneal": [(176, 813)],
-                 "R anterior tibial": [(183, 826)],
-                 "R posterior tibial": [(166, 822)],
-                 "R dorsalis pedis": [(155, 961)]}
-
-vessel_dict = {"Heart": organelles.Heart(),
-               "Aortic arch": organelles.BloodVessel(0.03),
-               "Brachiocephalic": organelles.BloodVessel(0.012),
-               "R common carotid": organelles.BloodVessel(0.006),
-               "R subclavian": organelles.BloodVessel(0.025),
-               "L common carotid": organelles.BloodVessel(0.006),
-               "Internal carotid": organelles.BloodVessel(0.001),
-               "External carotid": organelles.BloodVessel(0.001),
-               "L subclavian": organelles.BloodVessel(0.025),
-               "Vertebral artery": organelles.BloodVessel(0.004),
-               "Int. thoracic": organelles.BloodVessel(0.03),
-               "Thyrocervical trunk": organelles.BloodVessel(0.001),
-               "Costocervical trunk": organelles.BloodVessel(0.006),
-               "Dorsal scapular artery": organelles.BloodVessel(0.002),
-               "Descending Aorta": organelles.BloodVessel(0.015),
-               "Bronchial": organelles.BloodVessel(0.0015),
-               "Abdominal aorta": organelles.BloodVessel(0.02),
-               "Celiac": organelles.BloodVessel(0.0078),
-               "L Gastric": organelles.BloodVessel(0.0038),
-               "Common hepatic": organelles.BloodVessel(0.004),
-               "Splenic": organelles.BloodVessel(0.0061),
-               "SMA": organelles.BloodVessel(0.08),
-               "Renal": organelles.BloodVessel(0.0055),
-               "IMA": organelles.BloodVessel(0.04),
-               "L common iliac": organelles.BloodVessel(0.012),
-               "R common iliac": organelles.BloodVessel(0.013),
-               "L external iliac": organelles.BloodVessel(0.01),
-               "L internal iliac": organelles.BloodVessel(0.006),
-               "L femoral": organelles.BloodVessel(0.01),
-               "L profunda femoris": organelles.BloodVessel(0.006),
-               "L popliteal": organelles.BloodVessel(0.009),
-               "L peroneal": organelles.BloodVessel(0.0015),
-               "L anterior tibial": organelles.BloodVessel(0.0028),
-               "L posterior tibial": organelles.BloodVessel(0.0019),
-               "L dorsalis pedis": organelles.BloodVessel(0.0033),
-               "R external iliac": organelles.BloodVessel(0.01),
-               "R internal iliac": organelles.BloodVessel(0.006),
-               "R femoral": organelles.BloodVessel(0.01),
-               "R profunda femoris": organelles.BloodVessel(0.006),
-               "R popliteal": organelles.BloodVessel(0.009),
-               "R peroneal": organelles.BloodVessel(0.0015),
-               "R anterior tibial": organelles.BloodVessel(0.0029),
-               "R posterior tibial": organelles.BloodVessel(0.0019),
-               "R dorsalis pedis": organelles.BloodVessel(0.0033)}
-vessel_dict = {"Heart": organelles.Heart([(265, 265)]),
-               "Aortic arch": organelles.BloodVessel(0.03, [(265, 215)]),
-               "Brachiocephalic": organelles.BloodVessel(0.012, [(245, 205)]),
-               "R common carotid": organelles.BloodVessel(0.006, [(225, 160)]),
-               "R Internal carotid": organelles.BloodVessel(0.001, [(221, 98)]),
-               "R External carotid": organelles.BloodVessel(0.001, [(208, 85)]),
-               "R subclavian": organelles.BloodVessel(xx, [(185, 205)]),
-               "L common carotid": organelles.BloodVessel(0.006, []),
-               "L Internal carotid": organelles.BloodVessel(0.001, []),
-               "L External carotid": organelles.BloodVessel(0.001, []),
-               "L subclavian": organelles.BloodVessel(0.025, []),
-               "Vertebral artery": organelles.BloodVessel(0.004, [(250, 160)]),
-               "R Int. thoracic": organelles.BloodVessel(0.03, [(225, 235)]),
-               "L Int. thoracic": organelles.BloodVessel(0.03, []),
-               "R Thyrocervical trunk": organelles.BloodVessel(0.001, [(220, 178)]),
-               "R Costocervical trunk": organelles.BloodVessel(0.006, [(205, 180)]),
-               "L Thyrocervical trunk": organelles.BloodVessel(0.001, []),
-               "L Costocervical trunk": organelles.BloodVessel(0.006, []),
-               "R Dorsal scapular artery": organelles.BloodVessel(0.002, [(197, 187)]),
-               "L Dorsal scapular artery": organelles.BloodVessel(0.002, []),
-               "Descending Aorta": organelles.BloodVessel(0.015, [(262, 320)]),
-               "R Bronchial": organelles.BloodVessel(0.0015, [(225, 250)]),
-               "L Bronchial": organelles.BloodVessel(0.0015, []),
-               "Abdominal aorta": organelles.BloodVessel(0.02, [(262, 385)]),
-               "Celiac": organelles.BloodVessel(0.0078, [(261, 338)]),
-               "L Gastric": organelles.BloodVessel(0.0038, [(239, 343)]),
-               "Common hepatic": organelles.BloodVessel(0.004, [(239, 339)]),
-               "Splenic": organelles.BloodVessel(0.0061, [(289, 334)]),
-               "SMA": organelles.BloodVessel(0.08, [(281, 381)]),
-               "Renal": organelles.BloodVessel(0.0055, [(241, 368)]),
-               "IMA": organelles.BloodVessel(0.04, [(251, 410)]),
-               "L common iliac": organelles.BloodVessel(0.012, []),
-               "R common iliac": organelles.BloodVessel(0.013, [(235, 445)]),
-               "L external iliac": organelles.BloodVessel(0.01, []),
-               "L internal iliac": organelles.BloodVessel(0.006, []),
-               "L femoral": organelles.BloodVessel(0.01, []),
-               "L profunda femoris": organelles.BloodVessel(0.006, []),
-               "L popliteal": organelles.BloodVessel(0.009, []),
-               "L peroneal": organelles.BloodVessel(0.0015, []),
-               "L anterior tibial": organelles.BloodVessel(0.0028, []),
-               "L posterior tibial": organelles.BloodVessel(0.0019, []),
-               "L dorsalis pedis": organelles.BloodVessel(0.0033, []),
-               "R external iliac": organelles.BloodVessel(0.01, [(206, 502)]),
-               "R internal iliac": organelles.BloodVessel(0.006, [(239, 461)]),
-               "R femoral": organelles.BloodVessel(0.01, [(201, 636)]),
-               "R profunda femoris": organelles.BloodVessel(0.006, [(206, 503)]),
-               "R popliteal": organelles.BloodVessel(0.009, [(189, 694)]),
-               "R peroneal": organelles.BloodVessel(0.0015, [(176, 813)]),
-               "R anterior tibial": organelles.BloodVessel(0.0028, [(183, 826)]),
-               "R posterior tibial": organelles.BloodVessel(0.0019, [(166, 822)]),
-               "R dorsalis pedis": organelles.BloodVessel(0.0033, [(155, 961)])}
-
 
 def build_network():
-    for key in vessel_dict:
-        vessel_dict[key].coords = vessel_coords[key]
+    vessel_dict = {"Heart": organelles.Heart([(265, 265)]),
+                   "Aortic arch": organelles.BloodVessel(0.03, [(265, 215)]),
+                   "Brachiocephalic": organelles.BloodVessel(0.012, [(245, 205)]),
+                   "R common carotid": organelles.BloodVessel(0.006, [(225, 160)]),
+                   "R Internal carotid": organelles.BloodVessel(0.001, [(221, 98)]),
+                   "R External carotid": organelles.BloodVessel(0.001, [(208, 85)]),
+                   "R subclavian": organelles.BloodVessel(0.025, [(185, 205)]),
+                   "L common carotid": organelles.BloodVessel(0.006, []),
+                   "L Internal carotid": organelles.BloodVessel(0.001, []),
+                   "L External carotid": organelles.BloodVessel(0.001, []),
+                   "L subclavian": organelles.BloodVessel(0.025, []),
+                   "Vertebral artery": organelles.BloodVessel(0.004, [(250, 160)]),
+                   "R Int. thoracic": organelles.BloodVessel(0.03, [(225, 235)]),
+                   "L Int. thoracic": organelles.BloodVessel(0.03, []),
+                   "R Thyrocervical trunk": organelles.BloodVessel(0.001, [(220, 178)]),
+                   "R Costocervical trunk": organelles.BloodVessel(0.006, [(205, 180)]),
+                   "L Thyrocervical trunk": organelles.BloodVessel(0.001, []),
+                   "L Costocervical trunk": organelles.BloodVessel(0.006, []),
+                   "R Dorsal scapular artery": organelles.BloodVessel(0.002, [(197, 187)]),
+                   "L Dorsal scapular artery": organelles.BloodVessel(0.002, []),
+                   "Descending Aorta": organelles.BloodVessel(0.015, [(262, 320)]),
+                   "R Bronchial": organelles.BloodVessel(0.0015, [(225, 250)]),
+                   "L Bronchial": organelles.BloodVessel(0.0015, []),
+                   "Abdominal aorta": organelles.BloodVessel(0.02, [(262, 385)]),
+                   "Celiac": organelles.BloodVessel(0.0078, [(261, 338)]),
+                   "L Gastric": organelles.BloodVessel(0.0038, [(239, 343)]),
+                   "Common hepatic": organelles.BloodVessel(0.004, [(239, 339)]),
+                   "Splenic": organelles.BloodVessel(0.0061, [(289, 334)]),
+                   "SMA": organelles.BloodVessel(0.08, [(281, 381)]),
+                   "Renal": organelles.BloodVessel(0.0055, [(241, 368)]),
+                   "IMA": organelles.BloodVessel(0.04, [(251, 410)]),
+                   "L common iliac": organelles.BloodVessel(0.012, []),
+                   "R common iliac": organelles.BloodVessel(0.013, [(235, 445)]),
+                   "L external iliac": organelles.BloodVessel(0.01, []),
+                   "L internal iliac": organelles.BloodVessel(0.006, []),
+                   "L femoral": organelles.BloodVessel(0.01, []),
+                   "L profunda femoris": organelles.BloodVessel(0.006, []),
+                   "L popliteal": organelles.BloodVessel(0.009, []),
+                   "L peroneal": organelles.BloodVessel(0.0015, []),
+                   "L anterior tibial": organelles.BloodVessel(0.0028, []),
+                   "L posterior tibial": organelles.BloodVessel(0.0019, []),
+                   "L dorsalis pedis": organelles.BloodVessel(0.0033, []),
+                   "R external iliac": organelles.BloodVessel(0.01, [(206, 502)]),
+                   "R internal iliac": organelles.BloodVessel(0.006, [(239, 461)]),
+                   "R femoral": organelles.BloodVessel(0.01, [(201, 636)]),
+                   "R profunda femoris": organelles.BloodVessel(0.006, [(206, 503)]),
+                   "R popliteal": organelles.BloodVessel(0.009, [(189, 694)]),
+                   "R peroneal": organelles.BloodVessel(0.0015, [(176, 813)]),
+                   "R anterior tibial": organelles.BloodVessel(0.0028, [(183, 826)]),
+                   "R posterior tibial": organelles.BloodVessel(0.0019, [(166, 822)]),
+                   "R dorsalis pedis": organelles.BloodVessel(0.0033, [(155, 961)])}
     vessel_dict["Heart"].add_recipient(vessel_dict["Aortic arch"])
     vessel_dict["Aortic arch"].add_recipient(vessel_dict["Brachiocephalic"])
     vessel_dict["Aortic arch"].add_recipient(vessel_dict["L common carotid"])
     vessel_dict["Aortic arch"].add_recipient(vessel_dict["L subclavian"])
+    vessel_dict["Aortic arch"].add_recipient(vessel_dict["R subclavian"])
     vessel_dict["Aortic arch"].add_recipient(vessel_dict["Descending Aorta"])
     vessel_dict["Brachiocephalic"].add_recipient(vessel_dict["R common carotid"])
     vessel_dict["Brachiocephalic"].add_recipient(vessel_dict["R subclavian"])
-    vessel_dict["L common carotid"].add_recipient(vessel_dict["Internal carotid"])
-    vessel_dict["L common carotid"].add_recipient(vessel_dict["External carotid"])
+    vessel_dict["L common carotid"].add_recipient(vessel_dict["L Internal carotid"])
+    vessel_dict["L common carotid"].add_recipient(vessel_dict["L External carotid"])
+    vessel_dict["R common carotid"].add_recipient(vessel_dict["R Internal carotid"])
+    vessel_dict["R common carotid"].add_recipient(vessel_dict["R External carotid"])
     vessel_dict["L subclavian"].add_recipient(vessel_dict["Vertebral artery"])
-    vessel_dict["L subclavian"].add_recipient(vessel_dict["Int. thoracic"])
-    vessel_dict["L subclavian"].add_recipient(vessel_dict["Thyrocervical trunk"])
-    vessel_dict["L subclavian"].add_recipient(vessel_dict["Costocervical trunk"])
-    vessel_dict["L subclavian"].add_recipient(vessel_dict["Dorsal scapular artery"])
-    vessel_dict["Descending Aorta"].add_recipient(vessel_dict["Bronchial"])
+    vessel_dict["L subclavian"].add_recipient(vessel_dict["L Int. thoracic"])
+    vessel_dict["R subclavian"].add_recipient(vessel_dict["R Int. thoracic"])
+    vessel_dict["L subclavian"].add_recipient(vessel_dict["L Thyrocervical trunk"])
+    vessel_dict["L subclavian"].add_recipient(vessel_dict["L Costocervical trunk"])
+    vessel_dict["L subclavian"].add_recipient(vessel_dict["L Dorsal scapular artery"])
+    vessel_dict["R subclavian"].add_recipient(vessel_dict["R Thyrocervical trunk"])
+    vessel_dict["R subclavian"].add_recipient(vessel_dict["R Costocervical trunk"])
+    vessel_dict["R subclavian"].add_recipient(vessel_dict["R Dorsal scapular artery"])
+    vessel_dict["Descending Aorta"].add_recipient(vessel_dict["R Bronchial"])
+    vessel_dict["Descending Aorta"].add_recipient(vessel_dict["L Bronchial"])
     vessel_dict["Descending Aorta"].add_recipient(vessel_dict["Abdominal aorta"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["Celiac"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["Renal"])
