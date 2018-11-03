@@ -11,4 +11,3 @@ class DeathEvent(Event):
 class ChangeBleeding(Event):
     def __init__(self, args):
         super().__init__(args)
-

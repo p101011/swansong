@@ -83,6 +83,7 @@ def build_network():
     vessel_dict["Descending Aorta"].add_recipient(vessel_dict["Abdominal aorta"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["Celiac"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["Renal"])
+    vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["SMA"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["IMA"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["L common iliac"])
     vessel_dict["Abdominal aorta"].add_recipient(vessel_dict["R common iliac"])
