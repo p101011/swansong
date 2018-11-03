@@ -34,6 +34,11 @@ class BloodSource:
         self.broken = True
         return temp
 
+    def repair_all(self):
+        self.broken = False
+        for child in self.children:
+            child.repair_all()
+
     def print_status(self, name):
         print("%s is giving %d mL to %d children" % (name, self.total_output * 1000, len(self.children)))
 

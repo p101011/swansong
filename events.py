@@ -1,13 +1,6 @@
-class Event:
-    def __init__(self, args):
-        self.args = args
+import pygame
+
+ORGANISM_DEAD = pygame.USEREVENT + 0
+ORGANISM_BLEEDING = pygame.USEREVENT + 1
 
 
-class DeathEvent(Event):
-    def __init__(self, args):
-        super().__init__(args)
-
-
-class ChangeBleeding(Event):
-    def __init__(self, args):
-        super().__init__(args)
