@@ -1,6 +1,0 @@
-import pygame
-
-ORGANISM_DEAD = pygame.USEREVENT + 0
-ORGANISM_BLEEDING = pygame.USEREVENT + 1
-
-

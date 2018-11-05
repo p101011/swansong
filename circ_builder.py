@@ -2,7 +2,8 @@ import organelles
 
 
 #  Artery Info
-#  missing arms
+#  TODO: missing arms
+#  TODO: Stretch - minor vessels, veins?
 
 
 def build_network():

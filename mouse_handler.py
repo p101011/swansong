@@ -12,3 +12,10 @@ def get_blood_source(coords, network):
                 if abs(coords[1] - source_center[1]) <= source.render_radius:
                     return source
     return None
+
+
+def query_renderables(coords, renderable_list):
+    for renderable in renderable_list:
+        if renderable.rect.collidepoint(coords):
+            return renderable
+    return None

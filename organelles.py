@@ -9,9 +9,9 @@ import constants
 
 class BloodSource:
     def __init__(self, coords):
-        # this doesn't get modified on init
         self.total_output = 0
         self.nominal_output = 0
+        self.current_volume = 0
         self.broken = False
         self.children = []
         self.render_radius = 1
@@ -36,17 +36,15 @@ class BloodSource:
 
     def repair_all(self):
         self.broken = False
+        self.total_output = self.nominal_output
         for child in self.children:
             child.repair_all()
 
     def print_status(self, name):
         print("%s is giving %d mL to %d children" % (name, self.total_output * 1000, len(self.children)))
 
-    def draw(self):
-        pass
-
-    def __str__(self):
-        return "%f mL\s blood loss" % (self.nominal_output - self.total_output)
+    # def __str__(self):
+    #     return "%f mL\s blood loss" % (self.nominal_output - self.total_output)
 
 
 class Heart(BloodSource):
@@ -56,12 +54,6 @@ class Heart(BloodSource):
         # store heart rate as bps
         self.rate = 1
         self.set_output(self.volume * self.rate, True)
-
-    def set_rate(self, rate):
-        self.rate = rate
-        old_out = self.total_output
-        new_out = self.volume * self.rate
-        self.set_output(new_out - old_out)
 
 
 class BloodVessel(BloodSource):

@@ -7,26 +7,35 @@ import constants
 
 class Renderer:
 
+    # TODO: https://stackoverflow.com/questions/49014660/tinting-an-image-in-pygame
+    # TODO: Use above to tint arteries, rather than circles
+
     def __init__(self, core_surface, model):
         self.background_surface = core_surface
         self.model = model
         self.circ_system = model.circulatory_system
         self.bleed_icon = pygame.image.load('res\\bleed.jpg')
+        self.heal_icon = pygame.image.load('res\\heal.jpg')
         self.background_image = pygame.image.load('res\\circ_system.jpg')
         self.reset_image = pygame.image.load('res\\reset.jpg')
         self.status_timer = 0
         self.status_text = ""
         self.text_font = pygame.font.SysFont('Courier New', 30)
+        self.renderables = []
 
-    def draw_frame(self):
-        self.background_surface.blit(self.background_image, (0, 0))
+    def draw_frame(self, frame):
+        # self.background_surface.blit(self.background_image, (0, 0))
         self.background_surface.blit(self.reset_image, constants.RESET_COORDS)
+        self.renderables = [Renderable(pygame.Rect(constants.RESET_COORDS, constants.RESET_SIZE), "button", "reset")]
         for blood_source_key in self.model.circulatory_system.network:
             source = self.model.circulatory_system.network[blood_source_key]
             if source.coords is not None and len(source.coords) != 0:
                 if source.pulse_clock == constants.PULSE_DELAY:
-                        source_color = constants.FLASH_COLOR
-                        source.pulse_clock = 0
+                    source_color = constants.FLASH_COLOR
+                    source.pulse_clock = 0
+                elif source.broken:
+                    source.pulse_clock += 1
+                    source_color = constants.EMPTY_COLOR
                 else:
                     # TODO: This logic is redundant now; blood vessels always have max or min loss
                     # source_loss = (source.nominal_output - source.total_output) / source.nominal_output
@@ -34,14 +43,14 @@ class Renderer:
                     # g_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[1] - constants.EMPTY_COLOR[1])) * (1 - source_loss))
                     # b_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[2] - constants.EMPTY_COLOR[2])) * (1 - source_loss))
                     # source_color = (r_delta, g_delta, b_delta)
-                    if source.total_output < source.nominal_output:
+                    if 0 < source.total_output < source.nominal_output:
+                        source_color = constants.DEBUG_COLOR
+                    elif source.total_output < source.nominal_output:
                         source_color = constants.EMPTY_COLOR
                     else:
                         source_color = constants.HEALTHY_ARTERY_COLOR
-                if source.broken:
-                    source.pulse_clock += 1
-                    source_color = constants.EMPTY_COLOR
-                pygame.draw.circle(self.background_surface, source_color, source.coords[0], source.render_radius)
+                vessel_rect = pygame.draw.circle(self.background_surface, source_color, source.coords[0], source.render_radius)
+                self.renderables.append(Renderable(vessel_rect, "bloodsource", source))
         self.draw_stats()
         if self.status_timer > 0:
             self.draw_text(self.status_text)
@@ -53,7 +62,7 @@ class Renderer:
         self.print_heartrate()
 
     def draw_bloodloss(self):
-        normalized_blood_volume = (self.circ_system.total_blood - self.circ_system.blood_loss)\
+        normalized_blood_volume = (self.circ_system.total_blood - self.circ_system.blood_loss) \
                                   / self.circ_system.total_blood
         # TODO: optimize pie chart drawing?
         # if normalized_blood_volume > 0.5:  # more blood then not, so quicker to draw missing arc
@@ -80,6 +89,8 @@ class Renderer:
     def draw_bleed(self):
         if self.model.bleeding:
             self.background_surface.blit(self.bleed_icon, constants.BLEED_ICON_COORDS)
+            self.background_surface.blit(self.heal_icon, constants.HEAL_ICON_COORDS)
+            self.renderables.append(Renderable(pygame.Rect(constants.HEAL_ICON_COORDS, (49, 49)), "button", "heal"))
 
     def draw_text(self, string):
         text_surf = self.text_font.render(string, False, constants.NOTIFICATION_TEXT_COLOR)
@@ -88,3 +99,10 @@ class Renderer:
     def notify(self, string, frames):
         self.status_text = string
         self.status_timer = frames
+
+
+class Renderable:
+    def __init__(self, rect, archetype, data):
+        self.rect = rect
+        self.type = archetype
+        self.data = data
