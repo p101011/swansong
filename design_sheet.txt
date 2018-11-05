@@ -1,0 +1,42 @@
+Blood tubes
+
+    Current Issue:
+        Vessels act as binary gates; they either have all blood or no blood
+        Thus cannot drain properly (entire system empties on same frame)
+        
+    Solution:
+        Each vessel needs to be more granular
+        RL:
+            vessel is a tube
+            blood coming in must travel full length before leaving
+            assuming full blood pressure:
+                blood vessel must fill before spilling over to children
+            otherwise:
+                vessel trickles more
+                each frame of liquid crawls along vessel
+                vessel should be able to track volume of discrete portions of vessel
+                (think DF liquid height)
+        tackle in order of difficulty
+        ignore blood pressure
+        then ignore blood pressure but implement granular vessels
+        then use that for blood pressure
+        solution should be able to easily accomodate different structure for vessel storage
+
+        solution needs some measure of how full a vessel is
+            first pass: single value
+            final pass: value for each unit length section of vessel, big artery = more time
+        heart is special case
+            always gets proper amount of blood
+            first pass: always full (0.28 L output)
+            second pass: represent all four chambers
+
+        therefore important values:
+            current volume
+            max volume
+            input per frame
+            max output per frame
+
+            assume vessel diameter is constant and use for previous values
+            input per frame is dynamic, so not state variable
+            max volume is constant factor of length
+            broken should be handled other than bool, but fine for now

@@ -8,10 +8,13 @@ import constants
 
 
 class BloodSource:
-    def __init__(self, coords):
-        self.total_output = 0
-        self.nominal_output = 0
+    def __init__(self, name, coords):
+
+        self.name = name
+        self.length = 0
         self.current_volume = 0
+        self.max_volume = 0
+        self.max_output = 0
         self.broken = False
         self.children = []
         self.render_radius = 1
@@ -23,44 +26,56 @@ class BloodSource:
     def add_recipient(self, receiver):
         self.children.append(receiver)
 
-    def set_output(self, lps, initial=False):
-        self.total_output = lps
-        if initial:
-            self.nominal_output = lps
-            self.render_radius = max(int(self.total_output * constants.SOURCE_RADIUS_FACTOR), 1)
+    def give_blood(self, volume):
+        #  note that breaks are modeled at root of artery (before it branches)
+        #  for the first pass, special handling
+        #  TODO: (bloodsource second pass) blood will ALWAYS leave artery, no special case
+        if self.broken:
+            overflow = self.current_volume / 4
+        else:
+            self.current_volume += volume
+            overflow = max(0, self.current_volume - self.max_volume)
+            # TODO: (blood pressure) handle overflow > max output
+            # if overflow > self.max_output:
+            #     pass
+        self.current_volume -= overflow
+        self.render_radius = min(max(int(self.current_volume * constants.SOURCE_RADIUS_FACTOR), 1), 30)
+        return overflow
 
     def destroy(self):
-        temp, self.total_output = self.total_output, 0
         self.broken = True
-        return temp
+        # TODO: (blood pressure) adjust max output when broken
 
     def repair_all(self):
         self.broken = False
-        self.total_output = self.nominal_output
         for child in self.children:
             child.repair_all()
 
-    def print_status(self, name):
-        print("%s is giving %d mL to %d children" % (name, self.total_output * 1000, len(self.children)))
-
-    # def __str__(self):
-    #     return "%f mL\s blood loss" % (self.nominal_output - self.total_output)
+    def __str__(self):
+        return "%s has %f/%f mL remaining" % (self.name, self.current_volume, self.max_volume)
 
 
 class Heart(BloodSource):
-    def __init__(self, coords):
-        super().__init__(coords)
-        self.volume = 0.280
+    def __init__(self, name, coords):
+        super().__init__(name, coords)
+        self.current_volume = 0.280
+        self.max_volume = 0.280
+        self.max_output = 0.280
+        self.length = 1
         # store heart rate as bps
         self.rate = 1
-        self.set_output(self.volume * self.rate, True)
 
 
 class BloodVessel(BloodSource):
-    def __init__(self, diameter, coords):
-        super().__init__(coords)
+    def __init__(self, name, diameter, length, coords):
+        # TODO: (URGENT) diameter >> max_volume, investigate units
+        super().__init__(name, coords)
+        self.length = length
+        self.current_volume = 0
+        self.max_volume = diameter * length
+        self.max_output = diameter
         self.diameter = diameter
-        self.velocity_mod = 1 / (math.pi * (self.diameter / 2) ** 2)
+        self.velocity_mod = 1 / (math.pi * (diameter / 2) ** 2)
 
     def __str__(self):
         return super().__str__() + " with %f diameter" % self.diameter

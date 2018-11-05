@@ -24,7 +24,7 @@ class Renderer:
         self.renderables = []
 
     def draw_frame(self, frame):
-        # self.background_surface.blit(self.background_image, (0, 0))
+        self.background_surface.blit(self.background_image, (0, 0))
         self.background_surface.blit(self.reset_image, constants.RESET_COORDS)
         self.renderables = [Renderable(pygame.Rect(constants.RESET_COORDS, constants.RESET_SIZE), "button", "reset")]
         for blood_source_key in self.model.circulatory_system.network:
@@ -37,15 +37,15 @@ class Renderer:
                     source.pulse_clock += 1
                     source_color = constants.EMPTY_COLOR
                 else:
-                    # TODO: This logic is redundant now; blood vessels always have max or min loss
+                    # TODO: reimplement this logic
                     # source_loss = (source.nominal_output - source.total_output) / source.nominal_output
                     # r_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[0] - constants.EMPTY_COLOR[0])) * (1 - source_loss))
                     # g_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[1] - constants.EMPTY_COLOR[1])) * (1 - source_loss))
                     # b_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[2] - constants.EMPTY_COLOR[2])) * (1 - source_loss))
                     # source_color = (r_delta, g_delta, b_delta)
-                    if 0 < source.total_output < source.nominal_output:
+                    if 0 < source.current_volume < source.max_volume:
                         source_color = constants.DEBUG_COLOR
-                    elif source.total_output < source.nominal_output:
+                    elif source.current_volume < source.max_volume:
                         source_color = constants.EMPTY_COLOR
                     else:
                         source_color = constants.HEALTHY_ARTERY_COLOR

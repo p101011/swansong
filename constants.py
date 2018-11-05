@@ -21,7 +21,7 @@ NOTIFICATION_COORDS = (120, 500)
 # TODO: switch duration to s rather than frames
 NOTIFICATION_DURATION = 30
 
-SOURCE_RADIUS_FACTOR = 120  # scalar for blood vessel radius on render
+SOURCE_RADIUS_FACTOR = 900  # scalar for blood vessel radius on render
 BLOOD_FLOW_FACTOR = 1  # percent of blood which is pushed from artery; 1 for complete blood transfer
 PULSE_DELAY = 60  # number of frames between flashes of destroyed blood sources
 FRAMERATE = 144

@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="933e61e4-5837-41e3-ab64-f2fbc9adf080" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/res/bleed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/heal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/reset.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/circ_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/circ_builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/circulatory.py" beforeDir="false" afterPath="$PROJECT_DIR$/circulatory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mouse_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mouse_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/organelles.py" beforeDir="false" afterPath="$PROJECT_DIR$/organelles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/render.py" beforeDir="false" afterPath="$PROJECT_DIR$/render.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +18,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/swansong$circulatory.coverage" NAME="Program Coverage Results" MODIFIED="1541196745504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/swansong$beziercurve.coverage" NAME="beziercurve Coverage Results" MODIFIED="1540229736964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/swansong$Program.coverage" NAME="Program Coverage Results" MODIFIED="1541387270325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/swansong$Program.coverage" NAME="Program Coverage Results" MODIFIED="1541430502385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-2022875305">
@@ -73,57 +67,71 @@
         <counts>
           <entry key="Python Console" value="133" />
           <entry key="dummy" value="27" />
-          <entry key="py" value="9506" />
-          <entry key="txt" value="848" />
+          <entry key="py" value="11310" />
+          <entry key="txt" value="1264" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="875" />
-          <entry key="Python" value="9639" />
+          <entry key="PLAIN_TEXT" value="1291" />
+          <entry key="Python" value="11443" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="6" />
+          <entry key="py" value="10" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="6" />
+          <entry key="Python" value="10" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37530562">
+    <splitter split-orientation="horizontal" split-proportion="0.42542788">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/circulatory.py">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/render.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+                <state relative-caret-position="153">
+                  <caret line="48" column="60" lean-forward="true" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
                   <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                    <marker date="1541387110808" expanded="true" signature="541:616" ph="..." />
-                    <marker date="1541387110808" expanded="true" signature="1627:1709" ph="..." />
-                    <marker date="1541387110808" expanded="true" signature="2887:2941" ph="..." />
+                    <element signature="e#0#11#0" expanded="true" />
+                    <marker date="1541396899920" expanded="true" signature="62:794" ph="..." />
+                    <marker date="1541396899920" expanded="true" signature="5115:5121" ph="..." />
+                    <marker date="1541396899920" expanded="true" signature="5243:5248" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/circulatory.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="811">
+                  <caret line="77" selection-start-line="77" selection-end-line="77" />
+                  <folding>
+                    <element signature="e#0#19#0" expanded="true" />
+                    <marker date="1541397175831" expanded="true" signature="526:601" ph="..." />
+                    <marker date="1541397175831" expanded="true" signature="1398:1447" ph="..." />
+                    <marker date="1541397175831" expanded="true" signature="2715:2769" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/organelles.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+                <state relative-caret-position="827">
+                  <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
-                    <marker date="1541387429334" expanded="true" signature="846:995" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -132,8 +140,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/program.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+                <state relative-caret-position="674">
+                  <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -145,7 +153,7 @@
             <entry file="file://$PROJECT_DIR$/mouse_handler.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="357">
-                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
                   <folding>
                     <marker date="1541384003637" expanded="true" signature="40:41" ph="..." />
                     <marker date="1541384003637" expanded="true" signature="40:45" ph="..." />
@@ -158,8 +166,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/constants.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+                <state relative-caret-position="493">
+                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
                 </state>
               </provider>
             </entry>
@@ -167,56 +175,55 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.53881276">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/organelles.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="221">
-                      <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-                      <folding>
-                        <element signature="e#0#11#0" expanded="true" />
-                        <marker date="1541387429334" expanded="true" signature="846:995" ph="..." />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/constants.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="493">
-                      <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/circ_builder.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="85">
-                      <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/design_sheet.txt">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="612">
-                      <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/render.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="317">
+                  <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                    <marker date="1541396899920" expanded="true" signature="62:794" ph="..." />
+                    <marker date="1541396899920" expanded="true" signature="5115:5121" ph="..." />
+                    <marker date="1541396899920" expanded="true" signature="5243:5248" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/organelles.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="373">
+                  <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                    <marker date="1541430502367" expanded="true" signature="847:1261" ph="..." />
+                    <marker date="1541430502367" expanded="true" signature="1401:1496" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/constants.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="493">
+                  <caret line="29" selection-start-line="29" selection-end-line="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/circ_builder.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1088">
+                  <caret line="64" column="80" selection-start-line="64" selection-start-column="80" selection-end-line="64" selection-end-column="80" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
       </split-second>
     </splitter>
   </component>
@@ -240,6 +247,7 @@
       <find>post(</find>
       <find>query_response[&quot;button action&quot;]</find>
       <find>pulse_clock</find>
+      <find>, \[.*</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -268,13 +276,13 @@
         <option value="$PROJECT_DIR$/events.py" />
         <option value="$PROJECT_DIR$/object_tree.py" />
         <option value="$PROJECT_DIR$/mouse_handler.py" />
+        <option value="$PROJECT_DIR$/design_sheet.txt" />
         <option value="$PROJECT_DIR$/circ_builder.py" />
         <option value="$PROJECT_DIR$/program.py" />
+        <option value="$PROJECT_DIR$/render.py" />
         <option value="$PROJECT_DIR$/circulatory.py" />
         <option value="$PROJECT_DIR$/constants.py" />
-        <option value="$PROJECT_DIR$/render.py" />
         <option value="$PROJECT_DIR$/organelles.py" />
-        <option value="$PROJECT_DIR$/design_sheet.txt" />
       </list>
     </option>
   </component>
@@ -285,9 +293,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="width" value="1216" />
-    <option name="height" value="1047" />
+    <option name="x" value="-7" />
+    <option name="width" value="1349" />
+    <option name="height" value="1445" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -415,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541276232631</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Barebones working&#10;&#10;Added TODOs laying out goals&#10;Added healing, minor prelim work for granular vessels&#10;Dropped events (useless)&#10;Added Renderables to simplify ui interaction">
+      <created>1541388442617</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541388442617</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -436,11 +451,11 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290469" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32829046" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26096824" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2753404" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32980332" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.30408472" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -453,29 +468,6 @@
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.073757134" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290469" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32829046" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2753404" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32980332" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32980332" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24945295" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -486,7 +478,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Get basic renderer and status bar working." />
     <MESSAGE value="Significant Changes&#10;&#10;Decoupled bleedout and framerate&#10;Added bleedout indicator&#10;Added reset button and functionality (WIP)&#10;Disabled Piechart Optimization&#10;Added more constants&#10;Fixed events (using Pygame now)&#10;Basic notification system&#10;Optimized artery coloring (for now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Significant Changes&#10;&#10;Decoupled bleedout and framerate&#10;Added bleedout indicator&#10;Added reset button and functionality (WIP)&#10;Disabled Piechart Optimization&#10;Added more constants&#10;Fixed events (using Pygame now)&#10;Basic notification system&#10;Optimized artery coloring (for now)" />
+    <MESSAGE value="Barebones working&#10;&#10;Added TODOs laying out goals&#10;Added healing, minor prelim work for granular vessels&#10;Dropped events (useless)&#10;Added Renderables to simplify ui interaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Barebones working&#10;&#10;Added TODOs laying out goals&#10;Added healing, minor prelim work for granular vessels&#10;Dropped events (useless)&#10;Added Renderables to simplify ui interaction" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -528,7 +521,7 @@
     <entry file="file://$PROJECT_DIR$/mouse_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <marker date="1541384003637" expanded="true" signature="40:41" ph="..." />
             <marker date="1541384003637" expanded="true" signature="40:45" ph="..." />
@@ -544,71 +537,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/program.py">
+    <entry file="file://$PROJECT_DIR$/design_sheet.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        <state relative-caret-position="476">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/circ_builder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="80" selection-start-line="64" selection-start-column="80" selection-end-line="64" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/render.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1541396899920" expanded="true" signature="62:794" ph="..." />
+            <marker date="1541396899920" expanded="true" signature="5115:5121" ph="..." />
+            <marker date="1541396899920" expanded="true" signature="5243:5248" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circulatory.py">
+    <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+        <state relative-caret-position="674">
+          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1541387110808" expanded="true" signature="541:616" ph="..." />
-            <marker date="1541387110808" expanded="true" signature="1627:1709" ph="..." />
-            <marker date="1541387110808" expanded="true" signature="2887:2941" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/render.py">
+    <entry file="file://$PROJECT_DIR$/circulatory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+        <state relative-caret-position="811">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1541387270311" expanded="true" signature="62:794" ph="..." />
-            <marker date="1541387270311" expanded="true" signature="5169:5175" ph="..." />
-            <marker date="1541387270311" expanded="true" signature="5297:5302" ph="..." />
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1541397175831" expanded="true" signature="526:601" ph="..." />
+            <marker date="1541397175831" expanded="true" signature="1398:1447" ph="..." />
+            <marker date="1541397175831" expanded="true" signature="2715:2769" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/circ_builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/organelles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        <state relative-caret-position="373">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1541387429334" expanded="true" signature="846:995" ph="..." />
+            <marker date="1541430502367" expanded="true" signature="847:1261" ph="..." />
+            <marker date="1541430502367" expanded="true" signature="1401:1496" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/design_sheet.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
         </state>
       </provider>
     </entry>
