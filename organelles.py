@@ -17,6 +17,15 @@ class BloodSource:
         self.max_output = 0
         self.broken = False
         self.children = []
+
+        # vessel contents state
+        # each cell is 0.01 m long
+        # and can hold 0.01 * radius L (m * m^2)
+        # each tick crawls cells along by volume input (if get 3 cells of volume, cells move 3 places)
+        # TODO: tick movement rate relates to blood pressure
+        self.contents = []
+        self.max_cell_volume = 0
+
         self.render_radius = 1
 
         #  Renderer info
@@ -70,7 +79,13 @@ class BloodVessel(BloodSource):
     def __init__(self, name, diameter, length, coords):
         # TODO: (URGENT) diameter >> max_volume, investigate units
         super().__init__(name, coords)
-        self.length = length
+        self.length = 0
+        # sum lengths of line segments in pixels
+        for i in range(1, len(coords)):
+            v1 = coords[i - 1]
+            v2 = coords[i]
+            self.length += ((v1[0] - v2[0]) ** 2 + (v1[1] - v2[1]) ** 2) ** .5
+        self.length *= constants.PIXELS_PER_METER
         self.current_volume = 0
         self.max_volume = diameter * length
         self.max_output = diameter

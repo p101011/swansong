@@ -24,6 +24,8 @@ NOTIFICATION_DURATION = 30
 SOURCE_RADIUS_FACTOR = 900  # scalar for blood vessel radius on render
 BLOOD_FLOW_FACTOR = 1  # percent of blood which is pushed from artery; 1 for complete blood transfer
 PULSE_DELAY = 60  # number of frames between flashes of destroyed blood sources
+# TODO: make height variable
+PIXELS_PER_METER = 1
 FRAMERATE = 144
-X_RES = 405
+X_RES = 338
 Y_RES = 1000

@@ -11,12 +11,12 @@ class Renderer:
     # TODO: Use above to tint arteries, rather than circles
 
     def __init__(self, core_surface, model):
-        self.background_surface = core_surface
+        self.surface = core_surface
         self.model = model
         self.circ_system = model.circulatory_system
         self.bleed_icon = pygame.image.load('res\\bleed.jpg')
         self.heal_icon = pygame.image.load('res\\heal.jpg')
-        self.background_image = pygame.image.load('res\\circ_system.jpg')
+        self.background_image = pygame.image.load('res\\scaled_system.jpg')
         self.reset_image = pygame.image.load('res\\reset.jpg')
         self.status_timer = 0
         self.status_text = ""
@@ -24,8 +24,8 @@ class Renderer:
         self.renderables = []
 
     def draw_frame(self, frame):
-        self.background_surface.blit(self.background_image, (0, 0))
-        self.background_surface.blit(self.reset_image, constants.RESET_COORDS)
+        self.surface.blit(self.background_image, (0, 0))
+        self.surface.blit(self.reset_image, constants.RESET_COORDS)
         self.renderables = [Renderable(pygame.Rect(constants.RESET_COORDS, constants.RESET_SIZE), "button", "reset")]
         for blood_source_key in self.model.circulatory_system.network:
             source = self.model.circulatory_system.network[blood_source_key]
@@ -49,7 +49,12 @@ class Renderer:
                         source_color = constants.EMPTY_COLOR
                     else:
                         source_color = constants.HEALTHY_ARTERY_COLOR
-                vessel_rect = pygame.draw.circle(self.background_surface, source_color, source.coords[0], source.render_radius)
+                if len(source.coords) == 0:
+                    vessel_rect = pygame.draw.circle(self.surface, source_color, source.coords[0], source.render_radius)
+                else:
+                    vessel_rect = pygame.draw.lines(self.surface, source_color, False, source.coords,
+                                                    source.render_radius)
+                # TODO: This won't work with line segments, need different logic
                 self.renderables.append(Renderable(vessel_rect, "bloodsource", source))
         self.draw_stats()
         if self.status_timer > 0:
@@ -79,22 +84,22 @@ class Renderer:
             y = constants.PIECHART_COORDS[1] + int(constants.PIECHART_RADIUS * math.sin(dt * math.pi / 180))
             poly_points.append((x, y))
         poly_points.append(constants.PIECHART_COORDS)
-        pygame.draw.circle(self.background_surface, circle_color, constants.PIECHART_COORDS, constants.PIECHART_RADIUS)
+        pygame.draw.circle(self.surface, circle_color, constants.PIECHART_COORDS, constants.PIECHART_RADIUS)
         if len(poly_points) > 2:
-            pygame.draw.polygon(self.background_surface, poly_color, poly_points)
+            pygame.draw.polygon(self.surface, poly_color, poly_points)
 
     def print_heartrate(self):
         pass
 
     def draw_bleed(self):
         if self.model.bleeding:
-            self.background_surface.blit(self.bleed_icon, constants.BLEED_ICON_COORDS)
-            self.background_surface.blit(self.heal_icon, constants.HEAL_ICON_COORDS)
+            self.surface.blit(self.bleed_icon, constants.BLEED_ICON_COORDS)
+            self.surface.blit(self.heal_icon, constants.HEAL_ICON_COORDS)
             self.renderables.append(Renderable(pygame.Rect(constants.HEAL_ICON_COORDS, (49, 49)), "button", "heal"))
 
     def draw_text(self, string):
         text_surf = self.text_font.render(string, False, constants.NOTIFICATION_TEXT_COLOR)
-        self.background_surface.blit(text_surf, constants.NOTIFICATION_COORDS)
+        self.surface.blit(text_surf, constants.NOTIFICATION_COORDS)
 
     def notify(self, string, frames):
         self.status_text = string

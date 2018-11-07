@@ -24,7 +24,6 @@ def main():
                 should_exit = True
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-
                 for renderable in [x for x in renderer.renderables if x.rect.collidepoint(pygame.mouse.get_pos())]:
                     if renderable.type == "button":
                         if renderable.data == "reset":
