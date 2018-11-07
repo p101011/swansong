@@ -75,8 +75,9 @@ class CirculatorySystem:
         self.heal()
 
     def tick(self, frametime):
-        heart_output = min(self.total_blood - self.blood_loss, self.network["Heart"].max_output) * frametime / 1000
-        self.flow_cycle(self.network["Heart"], heart_output)
+        # TODO: hook up heart to system so heart input depends on other network
+        heart_input = min(self.total_blood - self.blood_loss, 0.28) * frametime / 1000
+        self.flow_cycle(self.network["Heart"], heart_input)
         if self.blood_loss >= self.total_blood:
             self.blood_loss = self.total_blood
 

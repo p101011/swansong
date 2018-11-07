@@ -20,12 +20,15 @@ RESET_COORDS = (70, 750)
 NOTIFICATION_COORDS = (120, 500)
 # TODO: switch duration to s rather than frames
 NOTIFICATION_DURATION = 30
-
 SOURCE_RADIUS_FACTOR = 900  # scalar for blood vessel radius on render
-BLOOD_FLOW_FACTOR = 1  # percent of blood which is pushed from artery; 1 for complete blood transfer
 PULSE_DELAY = 60  # number of frames between flashes of destroyed blood sources
-# TODO: make height variable
-PIXELS_PER_METER = 1
-FRAMERATE = 144
 X_RES = 338
 Y_RES = 1000
+
+# SIMULATION CONSTANTS #
+
+MODEL_HEIGHT = 1.6
+PIXELS_PER_METER = Y_RES / MODEL_HEIGHT
+FRAMERATE = 144
+BLOOD_FLOW_FACTOR = 1  # percent of blood which is pushed from artery; 1 for complete blood transfer
+BLOOD_CELL_LENGTH = 0.01  # length of each distinct cell in a blood vessel in m

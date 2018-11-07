@@ -3,6 +3,8 @@
     <words>
       <w>coords</w>
       <w>framerate</w>
+      <w>frametime</w>
+      <w>piechart</w>
     </words>
   </dictionary>
 </component>
