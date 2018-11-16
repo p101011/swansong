@@ -27,10 +27,11 @@ class BloodSource:
         self.current_volume = 0
         self.max_volume = 0
 
-        self.render_radius = 1
+        self.render_radius = 3
+        self.render_fill = False
 
         #  Renderer info
-        self.coords = coords
+        self.coords = [(x + constants.MODEL_OFFSET[0], y + constants.MODEL_OFFSET[1]) for x, y in coords]
         self.pulse_clock = 0
 
     def add_recipient(self, receiver):
@@ -38,11 +39,21 @@ class BloodSource:
 
     def give_blood(self, volume):
         #  note that breaks are modeled at root of artery (before it branches)
+        # TODO: decouple from framerate! (how?)
+        # Problem: filling is fine (hopefully), but draining occurs at 1 cell per frame
+        # Simplest solution: 1 cell per second (?)
+        # Optimal solution: find velocity of blood!!!!
         if self.broken:
             volume = 0
+        if len(self.contents) == 0:
+            return volume
+        overflow = 0
+        if volume > self.max_volume:
+            overflow += volume - self.max_volume
+            volume = self.max_volume
         full_crawlers = int(max((1, volume // self.max_cell_volume)))
         partial_fill = volume - (full_crawlers * self.max_cell_volume)
-        overflow = sum(self.contents[-full_crawlers:])
+        overflow += sum(self.contents[-full_crawlers:])
         for i in range(len(self.contents) - 1, full_crawlers - 1, -1):
             self.contents[i] = self.contents[i - full_crawlers]
         partial_index = full_crawlers
@@ -61,8 +72,9 @@ class BloodSource:
                 self.contents[i] = 0
             else:
                 self.contents[i] = self.max_cell_volume
-        self.current_volume += (volume - overflow)
-        self.render_radius = min(max(int(self.current_volume * constants.SOURCE_RADIUS_FACTOR), 1), 30)
+        self.current_volume = sum(self.contents)
+        # TODO: this doesn't look nice
+        # self.render_radius = min(max(int(self.current_volume * constants.SOURCE_RADIUS_FACTOR), 1), 30)
         return overflow
 
     def destroy(self):
@@ -75,7 +87,7 @@ class BloodSource:
             child.repair_all()
 
     def __str__(self):
-        return "%s has %f/%f mL remaining" % (self.name, self.current_volume, self.max_volume) + " with" +\
+        return "%s has %f/%f mL remaining" % (self.name, self.current_volume, self.max_volume) + " with " +\
                str(self.contents)
 
 
@@ -83,18 +95,18 @@ class Heart(BloodSource):
     def __init__(self, name, coords):
         super().__init__(name, coords)
         self.current_volume = 0
-        self.contents = [0.7] * 4
+        self.contents = [0.07] * 4
         self.max_cell_volume = 0.07
         self.current_volume += sum(self.contents)
         self.max_volume = self.max_cell_volume * len(self.contents)
         self.length = 1
+        self.render_fill = True
         # store heart rate as bps
         self.rate = 1
 
 
 class BloodVessel(BloodSource):
     def __init__(self, name, diameter, coords):
-        # TODO: (URGENT) diameter >> max_volume, investigate units
         super().__init__(name, coords)
         self.length = 0
         # sum lengths of line segments in pixels

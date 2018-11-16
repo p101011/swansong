@@ -50,17 +50,13 @@ class CirculatorySystem:
 
     def flow_cycle(self, source, blood_input):
         overflow = source.give_blood(blood_input)
-        # TODO: (bloodsource second pass) see TODO in give_blood
         if source.broken:
-            self.blood_loss -= blood_input
+            # TODO: bleed out is VERY fast, not double-counting arteries
+            # aortic arch bleeds out faster than arch (!?)
+            self.blood_loss += blood_input
         total_diameter = sum([x.diameter for x in source.children])
         for branch in source.children:
             branch_allotment = branch.diameter / total_diameter * overflow * constants.BLOOD_FLOW_FACTOR
-            # TODO: (WIP) decouple vessels and update blood I/O frame-by-frame
-            # Goal is to properly model the cascade of blood leaving arteries - eg, once the heart breaks, the
-            # dorsalis pedis does NOT immediately break as well
-            # should hopefully make it easier to implement effects of blood loss
-            # every frame should recieve allotment
             self.flow_cycle(branch, branch_allotment)
 
     # TODO: (blood pressure) implement heartrate
@@ -76,11 +72,8 @@ class CirculatorySystem:
 
     def tick(self, frametime):
         # TODO: hook up heart to system so heart input depends on other network
+        frametime = 7
         heart_input = min(self.total_blood - self.blood_loss, 0.28) * frametime / 1000
         self.flow_cycle(self.network["Heart"], heart_input)
         if self.blood_loss >= self.total_blood:
             self.blood_loss = self.total_blood
-
-    def print_status(self):
-        print("This system is losing %d mL of blood per second, and has %f L of blood remaining" %
-              (self.blood_loss_rate * 1000, self.total_blood - self.blood_loss))

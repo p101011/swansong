@@ -1,7 +1,6 @@
 import math
-
+import time
 import pygame
-
 import constants
 
 
@@ -18,13 +17,14 @@ class Renderer:
         self.heal_icon = pygame.image.load('res\\heal.jpg')
         self.background_image = pygame.image.load('res\\scaled_system.jpg')
         self.reset_image = pygame.image.load('res\\reset.jpg')
-        self.status_timer = 0
+        self.notification_end = 0
         self.status_text = ""
         self.text_font = pygame.font.SysFont('Courier New', 30)
         self.renderables = []
 
     def draw_frame(self, frame):
-        self.surface.blit(self.background_image, (0, 0))
+        self.surface.fill(constants.BACKGROUND_COLOR)
+        self.surface.blit(self.background_image, constants.MODEL_OFFSET)
         self.surface.blit(self.reset_image, constants.RESET_COORDS)
         self.renderables = [Renderable(pygame.Rect(constants.RESET_COORDS, constants.RESET_SIZE), "button", "reset")]
         for blood_source_key in self.model.circulatory_system.network:
@@ -43,23 +43,27 @@ class Renderer:
                     # g_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[1] - constants.EMPTY_COLOR[1])) * (1 - source_loss))
                     # b_delta = int(abs((constants.HEALTHY_ARTERY_COLOR[2] - constants.EMPTY_COLOR[2])) * (1 - source_loss))
                     # source_color = (r_delta, g_delta, b_delta)
-                    if 0 < source.current_volume < source.max_volume:
+                    if 0 < source.current_volume < source.max_volume - constants.PRECISION_TOLERANCE:
                         source_color = constants.DEBUG_COLOR
-                    elif source.current_volume < source.max_volume:
+                    elif source.current_volume < source.max_volume - constants.PRECISION_TOLERANCE:
                         source_color = constants.EMPTY_COLOR
                     else:
                         source_color = constants.HEALTHY_ARTERY_COLOR
-                if len(source.coords) == 0:
+                if len(source.coords) == 1:
                     vessel_rect = pygame.draw.circle(self.surface, source_color, source.coords[0], source.render_radius)
+                elif source.render_fill:
+                    vessel_rect = pygame.draw.polygon(self.surface, source_color, source.coords, source.render_radius)
                 else:
                     vessel_rect = pygame.draw.lines(self.surface, source_color, False, source.coords,
                                                     source.render_radius)
                 # TODO: This won't work with line segments, need different logic
                 self.renderables.append(Renderable(vessel_rect, "bloodsource", source))
         self.draw_stats()
-        if self.status_timer > 0:
+        x = time.time()
+        if self.notification_end > time.time():
             self.draw_text(self.status_text)
-            self.status_timer -= 1
+        elif self.notification_end != 0:
+            self.notification_end = 0
 
     def draw_stats(self):
         self.draw_bloodloss()
@@ -101,9 +105,9 @@ class Renderer:
         text_surf = self.text_font.render(string, False, constants.NOTIFICATION_TEXT_COLOR)
         self.surface.blit(text_surf, constants.NOTIFICATION_COORDS)
 
-    def notify(self, string, frames):
+    def notify(self, string, duration):
         self.status_text = string
-        self.status_timer = frames
+        self.notification_end = time.time() + duration
 
 
 class Renderable:

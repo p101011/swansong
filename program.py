@@ -4,7 +4,6 @@ import circulatory
 import constants
 import render
 
-
 def main():
     pygame.init()
     pygame.font.init()
@@ -14,7 +13,7 @@ def main():
     person = circulatory.Organism()
     renderer = render.Renderer(background, person)
     should_exit = False
-    frame_time = 0
+    frame_time = 7  # TODO: this is a hack used for initial flow cycle
     frame = 0
     while not should_exit:
 
@@ -33,6 +32,7 @@ def main():
                             renderer.notify("Healing", constants.NOTIFICATION_DURATION)
                             person.heal()
                     elif renderable.type == "bloodsource":
+                        print(renderable.data)
                         if not renderable.data.broken:
                             person.bleeding = True
                             person.circulatory_system.destroy_vessel(renderable.data)
